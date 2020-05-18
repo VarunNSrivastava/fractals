@@ -199,7 +199,7 @@ class Main(object):
         
         # Make sure the frame buffer is complete
         if glCheckFramebufferStatus(GL_FRAMEBUFFER) == GL_FRAMEBUFFER_COMPLETE:
-            print "Success!"
+            print("Success!")
 
         # Unbind it
         glBindFramebuffer(GL_FRAMEBUFFER, 0)
