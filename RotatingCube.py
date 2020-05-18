@@ -31,6 +31,17 @@ edges = (
 )
 
 
+def axes():
+    glBegin(GL_LINES)
+    glVertex3fv((10, 0, 0))
+    glVertex3fv((-10, 0, 0))
+    glVertex3fv((0, 10, 0))
+    glVertex3fv((0, -10, 0))
+    glVertex3fv((0, 0, 10))
+    glVertex3fv((0, 0, -10))
+    glEnd()
+
+
 def cube():
     glBegin(GL_LINES)
     for edge in edges:
@@ -46,17 +57,18 @@ def main():
 
     gluPerspective(45, (display[0] / display[1]), 0.1, 50.0)
 
-    glTranslatef(0.0, 0.0, -10)
+    glTranslatef(0.0, 0.0, -15)
 
     glRotatef(0, 0, 0, 0)
-
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
 
+        glRotate(1, 1, 1, 1)
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+        axes()
         cube()
         pygame.display.flip()
         pygame.time.wait(10)
